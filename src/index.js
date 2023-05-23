@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import RouteSwitch from './RouteSwitch';
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
+
 
 // Firebase configuration
 const firebaseConfig = {
@@ -16,9 +18,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouteSwitch />
   </React.StrictMode>
 );

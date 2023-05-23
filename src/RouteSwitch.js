@@ -1,0 +1,21 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Menu from "./Menu";
+import Game from "./Game";
+import LeaderBoard from "./LeaderBoard";
+import HowTo from "./HowTo";
+
+function RouteSwitch() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Menu />} />
+        <Route path="/play" element={<Game />} />
+        <Route path="/leaderboard" element={<LeaderBoard />} />
+        <Route path="/howtoplay" element={<HowTo />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default RouteSwitch;
