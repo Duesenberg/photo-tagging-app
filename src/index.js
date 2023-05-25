@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import RouteSwitch from './RouteSwitch';
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import "./styles/GameInProcess.css";
 
 
 // Firebase configuration

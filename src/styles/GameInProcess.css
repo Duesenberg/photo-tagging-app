@@ -1,0 +1,17 @@
+.character-selection {
+  display: none;
+  width: 200px;
+  height: 200px;
+}
+.character-selection button {
+  flex: 1;
+}
+
+.character-selection.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-in-process-screen {
+  height: 100vh;
+}
