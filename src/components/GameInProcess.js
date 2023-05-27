@@ -1,9 +1,11 @@
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Stopwatch from './Stopwatch';
 
 export default function GameInProcess ({ toggleGameStarted, clickResponse, 
   showCharacterMenu, charMenuResponse, getCoordsFromCloud, comparisonObject,
-  markFoundChar, foundChars, checkIfAllFound, foundAll, removeCharacterMenu }) {
+  markFoundChar, foundChars, checkIfAllFound, foundAll, removeCharacterMenu,
+  time, setTime, isRunning, setIsRunning }) {
   const handleClick = async (e) => {
     charMenuResponse(e);
     getCoordsFromCloud();
@@ -17,9 +19,16 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
     removeCharacterMenu();
   }
 
+  useEffect(() => {
+    setIsRunning(!isRunning);
+  }, [foundAll])
+
   return(
     <div className='game-in-process-screen'>
       <Link to="/" onClick={toggleGameStarted}>Back to Menu</Link>
+
+      <Stopwatch
+        time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />
 
       <map name="image-map" onClick={showCharacterMenu}>
         <area target="_blank" alt="spongebob" coords="1215,336,1253,334,1251,384,1222,383" shape="poly" onClick={clickResponse} />

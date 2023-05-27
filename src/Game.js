@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import IntroScreen from "./components/IntroScreen";
 import GameInProcess from "./components/GameInProcess";
 
@@ -12,6 +12,7 @@ export default function Game ({ areasDoc }) {
     clickedCharCoords: null,
     cloudStorageCoords: null
   });
+
   //Holds data about which characters have been located
   const [foundChars, setFoundChars] = useState({
     spongebob: false,
@@ -20,18 +21,28 @@ export default function Game ({ areasDoc }) {
     mickeyMouse: false,
     beavisAndButthead: false
   });
+
   //Should turn to true once all characters have been found
   const [foundAll, setFoundAll] = useState(false);
+
+  // state to store time
+  const [time, setTime] = useState(0);
+
+  // state to check stopwatch running or not
+  const [isRunning, setIsRunning] = useState(false);
+
   //Toggling gameStarted to true removes the intro page when starting game
   const toggleGameStarted = () => {
     gameStarted === false ? setGameStarted(true) : setGameStarted(false);
   }
+
   //Sets value of clickedCharCoords in comparisonObject depending on click
   const clickResponse = (e) => {
     let comparisonObjectCopy = comparisonObject;
     comparisonObjectCopy.clickedCharCoords = e.target.coords;
     setComparisonObject(comparisonObjectCopy);
   }
+
   //Bring up character selection menu
   const showCharacterMenu = (e) => {
     //Add class of active to the menu, so it overrides display: none
@@ -46,18 +57,21 @@ export default function Game ({ areasDoc }) {
     //Remove class of active after 5s
     setTimeout(() => {characterMenu.classList.remove('active')}, 3000);
   }
+
   //Removes char menu by removing class of active
   //Used in handleClick in GameInProcess.js
   const removeCharacterMenu = () => {
     const characterMenu = document.querySelector('.character-selection');
     characterMenu.classList.remove('active');
   }
+
   //Set value of guessedChar based on menu selection
   const charMenuResponse = (e) => {
     let comparisonObjectCopy = comparisonObject;
     comparisonObjectCopy.guessedChar = e.target.dataset.id;
     setComparisonObject(comparisonObjectCopy);
   }
+
   //Gets coordinates about menu selected char from cloud firestore
   const getCoordsFromCloud = async () => {
     const cloudData = (await areasDoc).data();
@@ -68,6 +82,7 @@ export default function Game ({ areasDoc }) {
     comparisonObjectCopy.cloudStorageCoords = charCoords;
     setComparisonObject(comparisonObjectCopy);
   }
+
   //Compare if coords of clicked char are the same as guessed char coords
   const checkIfCorrect = () => {
     let match;
@@ -75,6 +90,7 @@ export default function Game ({ areasDoc }) {
     else match = false;
     return match;
   }
+
   //Mark character in foundChars if guessed correctly
   const markFoundChar = (comparisonObject) => {
     //Check if character is found
@@ -84,6 +100,7 @@ export default function Game ({ areasDoc }) {
     if (charFound === true) foundCharsCopy[comparisonObject.guessedChar] = true;
     setFoundChars(foundCharsCopy);
   }
+
   //Sets foundAll to true when all chars are found
   const checkIfAllFound = (foundChars) => {
     let found = false;
@@ -112,7 +129,8 @@ export default function Game ({ areasDoc }) {
         foundChars={foundChars}
         checkIfAllFound={checkIfAllFound}
         foundAll={foundAll}
-        removeCharacterMenu={removeCharacterMenu} />}
+        removeCharacterMenu={removeCharacterMenu}
+        time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />}
     </div>
   )
 }
