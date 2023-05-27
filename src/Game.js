@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import IntroScreen from "./components/IntroScreen";
 import GameInProcess from "./components/GameInProcess";
+import SubmitScore from "./components/SubmitScore";
 
 export default function Game ({ areasDoc }) {
   const [gameStarted, setGameStarted] = useState(false);
@@ -118,19 +119,21 @@ export default function Game ({ areasDoc }) {
     <div className="game-screen">
       {gameStarted === false ?
       <IntroScreen toggleGameStarted={toggleGameStarted} /> :
-      <GameInProcess 
-        toggleGameStarted={toggleGameStarted}
-        clickResponse={clickResponse} 
-        showCharacterMenu={showCharacterMenu}
-        charMenuResponse={charMenuResponse}
-        getCoordsFromCloud={getCoordsFromCloud}
-        comparisonObject={comparisonObject}
-        markFoundChar={markFoundChar}
-        foundChars={foundChars}
-        checkIfAllFound={checkIfAllFound}
-        foundAll={foundAll}
-        removeCharacterMenu={removeCharacterMenu}
-        time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />}
-    </div>
+      foundAll === true ?
+        <SubmitScore time={time} /> :
+        <GameInProcess 
+          toggleGameStarted={toggleGameStarted}
+          clickResponse={clickResponse} 
+          showCharacterMenu={showCharacterMenu}
+          charMenuResponse={charMenuResponse}
+          getCoordsFromCloud={getCoordsFromCloud}
+          comparisonObject={comparisonObject}
+          markFoundChar={markFoundChar}
+          foundChars={foundChars}
+          checkIfAllFound={checkIfAllFound}
+          foundAll={foundAll}
+          removeCharacterMenu={removeCharacterMenu}
+          time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />}
+      </div>
   )
 }

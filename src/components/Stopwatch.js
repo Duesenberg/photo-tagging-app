@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 const Stopwatch = ({ time, setTime, isRunning, setIsRunning }) => {
   useEffect(() => {
     setIsRunning(true);

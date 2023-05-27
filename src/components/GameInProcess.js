@@ -19,6 +19,7 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
     removeCharacterMenu();
   }
 
+  //Start stopwatch when game starts. stop when all characters are found
   useEffect(() => {
     setIsRunning(!isRunning);
   }, [foundAll])
@@ -29,6 +30,14 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
 
       <Stopwatch
         time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />
+
+      <div>
+        <p>Spongebob:{foundChars.spongebob ? "Found" : "Not found"}</p>
+        <p>Hellboy:{foundChars.hellboy ? "Found" : "Not found"}</p>
+        <p>Yoshi:{foundChars.yoshi ? "Found" : "Not found"}</p>
+        <p>Mickey Mouse:{foundChars.mickeyMouse ? "Found" : "Not found"}</p>
+        <p>Beavis and Butt-Head:{foundChars.beavisAndButthead ? "Found" : "Not found"}</p>
+      </div>
 
       <map name="image-map" onClick={showCharacterMenu}>
         <area target="_blank" alt="spongebob" coords="1215,336,1253,334,1251,384,1222,383" shape="poly" onClick={clickResponse} />
