@@ -2,7 +2,21 @@ import { React } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function GameInProcess ({ toggleGameStarted, clickResponse, 
-  showCharacterMenu, charMenuResponse }) {
+  showCharacterMenu, charMenuResponse, getCoordsFromCloud, comparisonObject,
+  markFoundChar, foundChars, checkIfAllFound, foundAll, removeCharacterMenu }) {
+  const handleClick = async (e) => {
+    charMenuResponse(e);
+    getCoordsFromCloud();
+    //Coords from cloud are async
+    const comparisonObjectCopy = await comparisonObject;
+    markFoundChar(comparisonObjectCopy);
+    //Await on foundChars because of cloud coords
+    const foundCharsCopy = await foundChars;
+    checkIfAllFound(foundCharsCopy);
+    //Clear Character menu
+    removeCharacterMenu();
+  }
+
   return(
     <div className='game-in-process-screen'>
       <Link to="/" onClick={toggleGameStarted}>Back to Menu</Link>
@@ -25,21 +39,25 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
       <div className='character-selection' >
         <button 
           data-id='spongebob'
-          onClick={charMenuResponse}>Spongebob</button>
+          onClick={handleClick}
+          >Spongebob</button>
         <button 
           data-id='hellboy'
-          onClick={charMenuResponse}>Hellboy</button>
+          onClick={handleClick}
+          >Hellboy</button>
         <button 
           data-id='yoshi'
-          onClick={charMenuResponse}>Yoshi</button>
+          onClick={handleClick}
+          >Yoshi</button>
         <button 
-          data-id='mickey mouse'
-          onClick={charMenuResponse}>Mickey Mouse</button>
+          data-id='mickeyMouse'
+          onClick={handleClick}
+          >Mickey Mouse</button>
         <button 
-          data-id='beavis and butthead'
-          onClick={charMenuResponse}>Beavis and Butt-Head</button>
+          data-id='beavisAndButthead'
+          onClick={handleClick}
+          >Beavis and Butt-Head</button>
       </div>
     </div>
-
   )
 }

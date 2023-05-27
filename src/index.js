@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import RouteSwitch from './RouteSwitch';
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import "./styles/GameInProcess.css";
 
 
@@ -22,9 +23,16 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+//Getting map area data from Firebase
+const docRef = doc(db, "map-areas", "areas");
+const areasDoc = getDoc(docRef);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouteSwitch />
+    <RouteSwitch areasDoc={areasDoc} />
   </React.StrictMode>
 );
