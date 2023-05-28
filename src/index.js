@@ -33,6 +33,6 @@ const areasDoc = getDoc(docRef);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouteSwitch areasDoc={areasDoc} />
+    <RouteSwitch areasDoc={areasDoc} db={db} />
   </React.StrictMode>
 );

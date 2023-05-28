@@ -3,7 +3,7 @@ import IntroScreen from "./components/IntroScreen";
 import GameInProcess from "./components/GameInProcess";
 import SubmitScore from "./components/SubmitScore";
 
-export default function Game ({ areasDoc }) {
+export default function Game ({ areasDoc, db }) {
   const [gameStarted, setGameStarted] = useState(false);
   //Holds data which is compared to assess if guess is correct.
   //1st value taken when guessing character, second value taken when clicking
@@ -120,7 +120,7 @@ export default function Game ({ areasDoc }) {
       {gameStarted === false ?
       <IntroScreen toggleGameStarted={toggleGameStarted} /> :
       foundAll === true ?
-        <SubmitScore time={time} /> :
+        <SubmitScore time={time} db={db} /> :
         <GameInProcess 
           toggleGameStarted={toggleGameStarted}
           clickResponse={clickResponse} 

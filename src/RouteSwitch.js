@@ -5,12 +5,12 @@ import Game from "./Game";
 import LeaderBoard from "./LeaderBoard";
 import HowTo from "./HowTo";
 
-function RouteSwitch({ areasDoc }) {
+function RouteSwitch({ areasDoc, db }) {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Menu />} />
-        <Route path="/play" element={<Game areasDoc={areasDoc} />} />
+        <Route path="/play" element={<Game areasDoc={areasDoc} db={db} />} />
         <Route path="/leaderboard" element={<LeaderBoard />} />
         <Route path="/howtoplay" element={<HowTo />} />
       </Routes>
