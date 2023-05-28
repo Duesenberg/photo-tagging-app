@@ -16,8 +16,10 @@ export default function SubmitScore ({ time, db }) {
       time: time
     }
     //Get parsed data & add player score to it
-    const parsedBoardDoc = await getScoreData();
+    let parsedBoardDoc = await getScoreData();
     parsedBoardDoc.push(player);
+    //Sort array of scores
+    parsedBoardDoc = sortScoreData(parsedBoardDoc);
     //Add to Firebase
     storeScoreData(parsedBoardDoc);
   }
@@ -41,6 +43,11 @@ export default function SubmitScore ({ time, db }) {
     } catch (err) {
       console.log("error:", err.message);
     }
+  }
+
+  const sortScoreData = (scoreArray) => {
+    scoreArray.sort((a, b) => a.time - b.time)
+    return scoreArray;
   }
 
   const handleSubmit = (e) => {
