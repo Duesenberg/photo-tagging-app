@@ -4,8 +4,7 @@ import RouteSwitch from './RouteSwitch';
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-import "./styles/GameInProcess.css";
-
+import "./styles/index.css";
 
 // Firebase configuration
 const firebaseConfig = {

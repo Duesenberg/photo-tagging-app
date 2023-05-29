@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'Foldit';
+  src: url('./fonts/Foldit-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+@keyframes pulse-animation {
+  0% {letter-spacing: 1;}
+  25% {letter-spacing: 1.2;}
+  50% {letter-spacing: 0.9;}
+  75% {letter-spacing: 1;}
+  100% {letter-spacing: 1;}
+}
+
+.menu-screen {
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.title .text {
+  font-family: 'Foldit';
+  font-size: 5.5rem;
+  font-weight: 700;
+  margin: 0px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buttons a {
+  font-family: 'Montserrat';
+  letter-spacing: 2px;
+  word-spacing: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 18px;
+  border-radius: 7px;
+  background-color: #383B53;
+  color: #D4D6B9;
+  transition: 125ms;
+}
+
+.buttons a:hover {
+  background-color: #66717E;
+  transform: scale(1.01);
+}
+
+.buttons a:active {
+  background-color: #32213A;
+  transform: scale(1);
+}
+
+.copyright span,
+.copyright a {
+  text-decoration: none;
+  color: #D4D6B9;
+  font-size: 1.2rem;
+}
+
+.copyright a {
+  font-weight: 700;
+}

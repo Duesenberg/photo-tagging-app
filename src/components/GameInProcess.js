@@ -1,6 +1,7 @@
 import { React, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Stopwatch from './Stopwatch';
+import "../styles/GameInProcess.css";
 
 export default function GameInProcess ({ toggleGameStarted, clickResponse, 
   showCharacterMenu, charMenuResponse, getCoordsFromCloud, comparisonObject,
