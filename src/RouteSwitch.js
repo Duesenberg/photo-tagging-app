@@ -11,7 +11,7 @@ function RouteSwitch({ areasDoc, db }) {
       <Routes>
         <Route path="/" element={<Menu />} />
         <Route path="/play" element={<Game areasDoc={areasDoc} db={db} />} />
-        <Route path="/leaderboard" element={<LeaderBoard />} />
+        <Route path="/leaderboard" element={<LeaderBoard db={db} />} />
         <Route path="/howtoplay" element={<HowTo />} />
       </Routes>
     </BrowserRouter>
