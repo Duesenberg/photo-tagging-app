@@ -1,4 +1,10 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf');
+}
+
 .game-in-process-screen {
+  width: 1382px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -8,17 +14,19 @@
 
 .game-in-process-screen .header {
   background-color: #32213A;
-  width: 100vw;
+  width: 96vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0px;
   left: 0px;
   z-index: 1;
+  padding: 5px 20px;
 }
 
 .game-image-container {
-  width: auto;
+  width: 1366px;
   padding: 8px;
   background-color: rgb(44, 44, 44);
 }
@@ -39,4 +47,80 @@
 
 .game-in-process-screen {
   height: 100vh;
+}
+
+.characters {
+  display: flex;
+  gap: 5px;
+}
+
+.characters .photo {
+  background-color: white;
+  width: 70px;
+  height: 70px;
+  border: 5px solid #383B53;
+}
+
+.characters .photo img {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+}
+
+.characters .hellboy.photo img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+}
+
+div.stopwatch {
+  width: 170px;
+}
+
+p.stopwatch-time {
+  font-family: 'Montserrat';
+  text-decoration: none;
+  color: #D4D6B9;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: start;
+}
+
+.back-to-menu .button {
+  border: none;
+  font-family: 'Montserrat';
+  letter-spacing: 2px;
+  word-spacing: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 18px;
+  border-radius: 7px;
+  background-color: #383B53;
+  color: #D4D6B9;
+  transition: 125ms;
+}
+
+.back-to-menu .button:hover {
+  background-color: #66717E;
+  border: none;
+  transform: scale(1.01);
+}
+
+.back-to-menu .button:active {
+  background-color: #32213A;
+  border: none;
+  transform: scale(1);
+}
+
+.checkmark {
+  background-color: green;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  left: 0;
+  top: 0;
+  background-image: url('./photos/check-bold.svg');;
 }

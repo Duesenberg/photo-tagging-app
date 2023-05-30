@@ -29,7 +29,7 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
     <div className='game-in-process-screen'>
       <div className='header'>
         <div className='back-to-menu'>
-          <Link to="/" onClick={toggleGameStarted}>Back to Menu</Link>
+          <Link className='button' to="/" onClick={toggleGameStarted}>Back to Menu</Link>
         </div>
 
         <div className='stopwatch'>
@@ -38,11 +38,50 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
         </div>
 
         <div className='characters'>
-          <p>Spongebob:{foundChars.spongebob ? "Found" : "Not found"}</p>
-          <p>Hellboy:{foundChars.hellboy ? "Found" : "Not found"}</p>
-          <p>Yoshi:{foundChars.yoshi ? "Found" : "Not found"}</p>
-          <p>Mickey Mouse:{foundChars.mickeyMouse ? "Found" : "Not found"}</p>
-          <p>Beavis and Butt-Head:{foundChars.beavisAndButthead ? "Found" : "Not found"}</p>
+        <div className="spongebob photo">
+            {foundChars.spongebob ? 
+              <div className='checkmark' /> :
+              <img 
+                src={require('../styles/photos/spongebob-photo.jpeg')}
+                alt='spongebob' />
+            }
+          </div>
+
+          <div className="hellboy photo">
+            {foundChars.hellboy ?
+              <div className='checkmark' />:
+              <img 
+                src={require('../styles/photos/hellboy-photo.jpg')}
+                alt='hellboy' />
+            }
+          </div>
+
+          <div className="yoshi photo">
+            {foundChars.yoshi ?
+              <div className='checkmark' /> :
+              <img 
+                src={require('../styles/photos/yoshi-photo.png')}
+                alt='yoshi' />
+            }
+          </div>
+
+          <div className="mickey photo">
+            {foundChars.mickeyMouse ? 
+              <div className='checkmark' /> :
+              <img 
+                src={require('../styles/photos/mickey-photo.png')}
+                alt='mickey' />
+            }
+          </div>
+
+          <div className="beavis-butthead photo">
+            {foundChars.beavisAndButthead ?
+              <div className='checkmark' /> :
+              <img 
+                src={require('../styles/photos/beavis-butthead-photo.jpeg')}
+                alt='beavis and butthead' />
+            }
+          </div>
         </div>
       </div>
 
