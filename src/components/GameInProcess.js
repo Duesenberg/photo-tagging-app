@@ -27,33 +27,41 @@ export default function GameInProcess ({ toggleGameStarted, clickResponse,
 
   return(
     <div className='game-in-process-screen'>
-      <Link to="/" onClick={toggleGameStarted}>Back to Menu</Link>
+      <div className='header'>
+        <div className='back-to-menu'>
+          <Link to="/" onClick={toggleGameStarted}>Back to Menu</Link>
+        </div>
 
-      <Stopwatch
-        time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />
+        <div className='stopwatch'>
+          <Stopwatch
+            time={time} setTime={setTime} isRunning={isRunning} setIsRunning={setIsRunning} />
+        </div>
 
-      <div>
-        <p>Spongebob:{foundChars.spongebob ? "Found" : "Not found"}</p>
-        <p>Hellboy:{foundChars.hellboy ? "Found" : "Not found"}</p>
-        <p>Yoshi:{foundChars.yoshi ? "Found" : "Not found"}</p>
-        <p>Mickey Mouse:{foundChars.mickeyMouse ? "Found" : "Not found"}</p>
-        <p>Beavis and Butt-Head:{foundChars.beavisAndButthead ? "Found" : "Not found"}</p>
+        <div className='characters'>
+          <p>Spongebob:{foundChars.spongebob ? "Found" : "Not found"}</p>
+          <p>Hellboy:{foundChars.hellboy ? "Found" : "Not found"}</p>
+          <p>Yoshi:{foundChars.yoshi ? "Found" : "Not found"}</p>
+          <p>Mickey Mouse:{foundChars.mickeyMouse ? "Found" : "Not found"}</p>
+          <p>Beavis and Butt-Head:{foundChars.beavisAndButthead ? "Found" : "Not found"}</p>
+        </div>
       </div>
 
-      <map name="image-map" onClick={showCharacterMenu}>
-        <area target="_blank" alt="spongebob" coords="1215,336,1253,334,1251,384,1222,383" shape="poly" onClick={clickResponse} />
-        <area target="_blank" alt="hellboy" coords="739,623,707,629,696,586,726,570" shape="poly" onClick={clickResponse} />
-        <area target="_blank" alt="yoshi" coords="129,540,120,553,106,547,101,520,126,520" shape="poly" onClick={clickResponse} />
-        <area target="_blank" alt="mickey mouse" coords="1272,163,1295,188,1321,168,1322,138,1286,134" shape="poly" onClick={clickResponse} />
-        <area target="_blank" alt="beavis and butthead" coords="213,225,153,228,164,297,211,296" shape="poly" onClick={clickResponse} />
-      </map>
+      <div className='game-image-container'>
+        <map name="image-map" onClick={showCharacterMenu}>
+          <area target="_blank" alt="spongebob" coords="1215,336,1253,334,1251,384,1222,383" shape="poly" onClick={clickResponse} />
+          <area target="_blank" alt="hellboy" coords="739,623,707,629,696,586,726,570" shape="poly" onClick={clickResponse} />
+          <area target="_blank" alt="yoshi" coords="129,540,120,553,106,547,101,520,126,520" shape="poly" onClick={clickResponse} />
+          <area target="_blank" alt="mickey mouse" coords="1272,163,1295,188,1321,168,1322,138,1286,134" shape="poly" onClick={clickResponse} />
+          <area target="_blank" alt="beavis and butthead" coords="213,225,153,228,164,297,211,296" shape="poly" onClick={clickResponse} />
+        </map>
 
-      <img 
-        src='https://firebasestorage.googleapis.com/v0/b/photo-tagging-app-b3302.appspot.com/o/game-image.jpg?alt=media&token=5162c8cf-d746-452a-8ea8-1f39fb59a7eb' 
-        alt='game characters collage' 
-        useMap="#image-map"
-        className="game-image"
-        onClick={showCharacterMenu} />
+        <img 
+          src='https://firebasestorage.googleapis.com/v0/b/photo-tagging-app-b3302.appspot.com/o/game-image.jpg?alt=media&token=5162c8cf-d746-452a-8ea8-1f39fb59a7eb' 
+          alt='game characters collage' 
+          useMap="#image-map"
+          className="game-image"
+          onClick={showCharacterMenu} />
+      </div>
 
       <div className='character-selection' >
         <button 

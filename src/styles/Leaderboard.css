@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+.leaderboard-screen {
+  background-color: rgb(44, 44, 44);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard-screen .card {
+  flex: 1;
+  margin: 50px 150px;
+  background-color: #32213A;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 25px;
+  gap: 50px;
+}
+
+.leaderboard-screen .title {
+  font-family: 'Montserrat';
+  letter-spacing: 2px;
+  word-spacing: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #D4D6B9;
+}
+
+.players-list div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.players-list .text {
+  font-family: 'Montserrat';
+  text-decoration: none;
+  color: #D4D6B9;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.back-button {
+  border: none;
+  font-family: 'Montserrat';
+  letter-spacing: 2px;
+  word-spacing: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 18px;
+  border-radius: 7px;
+  background-color: #383B53;
+  color: #D4D6B9;
+  transition: 125ms;
+}
+
+.back-button:hover {
+  background-color: #66717E;
+  border: none;
+  transform: scale(1.01);
+}
+
+.back-button:active {
+  background-color: #32213A;
+  border: none;
+  transform: scale(1);
+}

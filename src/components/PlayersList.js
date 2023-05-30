@@ -27,11 +27,26 @@ export default function PlayersList ({ db }) {
   return(
     <div className='players-list'>
       {scoreData === null ? 
-      <div>loading</div> :
+      <div className="text">Loading...</div> :
       <div>
         {scoreData.map((data) => {
+            // Minutes calculation
+            const minutes = Math.floor((data.time % 360000) / 6000);
+
+            // Seconds calculation
+            const seconds = Math.floor((data.time % 6000) / 100);
+
+            // Milliseconds calculation
+            const milliseconds = data.time % 100;
+
           return(
-            <div key={uniqid()}>{data.name}: {data.time}</div>
+            <div 
+              className="text" 
+              key={uniqid()}>
+                {data.name}:   {minutes.toString().padStart(2, "0")}:
+                {seconds.toString().padStart(2, "0")}:
+                {milliseconds.toString().padStart(2, "0")}
+            </div>
           )
         })}
       </div>}
