@@ -44,7 +44,6 @@ export default function HowTo () {
         <p className='text'>See how fast you can find all the characters, and submit your score!</p>
       <Link to='/' className='back-button'>Back</Link>
       </div>
-
     </div>
   )
 }

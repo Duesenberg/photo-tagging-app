@@ -58,6 +58,7 @@
 }
 
 .back-button {
+  border: none;
   font-family: 'Montserrat';
   letter-spacing: 2px;
   word-spacing: 8px;
@@ -75,10 +76,12 @@
 
 .back-button:hover {
   background-color: #66717E;
+  border: none;
   transform: scale(1.01);
 }
 
 .back-button:active {
   background-color: #32213A;
+  border: none;
   transform: scale(1);
 }
