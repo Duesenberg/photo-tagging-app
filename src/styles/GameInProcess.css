@@ -32,12 +32,30 @@
 }
 
 .character-selection {
+  border: 2px solid #32213A;
   display: none;
   width: 200px;
   height: 200px;
 }
 .character-selection button {
   flex: 1;
+  border: none;
+  font-family: 'Montserrat';
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px;
+  background-color: #383B53;
+  color: #D4D6B9;
+  transition: 125ms;
+}
+
+.character-selection button:hover {
+  background-color: #66717E;
+}
+
+.character-selection button:active {
+  background-color: #32213A;
 }
 
 .character-selection.active {
