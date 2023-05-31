@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getDoc, doc, setDoc } from "firebase/firestore";
 import ScoreSubmitted from './ScoreSubmitted';
+import '../styles/SubmitScore.css';
 
 export default function SubmitScore ({ time, db }) {
   const [scoreSubmitted, setScoreSubmitted] = useState(false);
@@ -70,17 +71,27 @@ export default function SubmitScore ({ time, db }) {
       {scoreSubmitted ?
       <ScoreSubmitted toggleScoreSubmitted={toggleScoreSubmitted} /> :
       <div className='not-submitted-screen'>
-        <p>Your time:</p>
-        <p className="stopwatch-time">
-          {minutes.toString().padStart(2, "0")}:
-          {seconds.toString().padStart(2, "0")}:
-          {milliseconds.toString().padStart(2, "0")}
-        </p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='name'>Name:</label>
-          <input type='text' name='name' id='name' placeholder='Your Name Here' required />
-          <button type='submit'>Submit</button>
-          <Link to='/'>Cancel</Link>
+        <p className='title'>Congratulations!</p>
+
+        <div className='your-time-container'>
+          <p className='text'>Your time:</p>
+          <p className="stopwatch-time text">
+            {minutes.toString().padStart(2, "0")}:
+            {seconds.toString().padStart(2, "0")}:
+            {milliseconds.toString().padStart(2, "0")}
+          </p>
+        </div>
+
+        <form className='submit-score-form' onSubmit={handleSubmit}>
+          <div className='name-input-container'>
+            <label htmlFor='name' className='text'>Name:</label>
+            <input type='text' name='name' id='name' className='name-input' placeholder='Your Name Here' required />
+          </div>
+
+          <div className='buttons'>
+            <button type='submit' className='submit-button'>Submit</button>
+            <Link to='/' className='cancel-button'>Cancel</Link>
+          </div>
         </form>
       </div> 
       }

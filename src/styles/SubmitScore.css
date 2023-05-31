@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+.game-screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.submit-score-screen {
+  background-color: rgb(44, 44, 44);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.not-submitted-screen,
+.submitted-screen-card {
+  flex: 1;
+  margin: 50px 150px;
+  background-color: #32213A;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  padding: 50px;
+}
+
+.submit-score-screen .title {
+  font-family: 'Montserrat';
+  text-decoration: none;
+  color: #D4D6B9;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.your-time-container {
+  display: flex;
+  gap: 15px;
+}
+
+.submit-score-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.submit-score-form .name-input-container {
+  display: flex;
+  gap: 15px;
+}
+
+.submit-score-screen .text {
+  font-family: 'Montserrat';
+  text-decoration: none;
+  color: #D4D6B9;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0px;
+}
+
+a.cancel-button,
+.submit-button {
+  border: none;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 18px;
+  border-radius: 7px;
+  background-color: #383B53;
+  color: #D4D6B9;
+  transition: 125ms;
+}
+
+.cancel-button:hover,
+.submit-button:hover {
+  background-color: #66717E;
+  border: none;
+  transform: scale(1.01);
+}
+
+.cancel-button:active,
+.submit-button:active {
+  background-color: #32213A;
+  border: none;
+  transform: scale(1);
+}
+
+input[type=text]#name {
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Montserrat';
+  font-size: 1.2rem;
+  background-color: #D4D6B9;
+  color: #32213A;
+  font-weight: bold;
+}
